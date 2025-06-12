@@ -1,13 +1,21 @@
-namespace Unicornus.Core.Models;
+using System.ComponentModel.DataAnnotations;
 
-public class Location
+namespace Unicornus.Core.Models
 {
-    public int LocationId { get; set; }
-    public string City { get; set; } = string.Empty;
-    public int CountryId { get; set; }
-    public int ContinentId { get; set; }
-    
-    public Country Country { get; set; } = null!;
-    public Continent Continent { get; set; } = null!;
-    public ICollection<Company> Companies { get; set; } = new List<Company>();
+    public class Location
+    {
+        public int LocationId { get; set; }
+        
+        [Required]
+        [MaxLength(100)]
+        public string City { get; set; } = string.Empty;
+        
+        public int CountryId { get; set; }
+        public Country Country { get; set; } = null!;
+        
+        public int ContinentId { get; set; }
+        public Continent Continent { get; set; } = null!;
+        
+        public ICollection<Company> Companies { get; set; } = new List<Company>();
+    }
 }

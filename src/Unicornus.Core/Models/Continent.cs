@@ -1,9 +1,15 @@
-namespace Unicornus.Core.Models;
+using System.ComponentModel.DataAnnotations;
 
-public class Continent
+namespace Unicornus.Core.Models
 {
-    public int ContinentId { get; set; }
-    public string ContinentName { get; set; } = string.Empty;
-    
-    public ICollection<Location> Locations { get; set; } = new List<Location>();
+    public class Continent
+    {
+        public int ContinentId { get; set; }
+        
+        [Required]
+        [MaxLength(50)]
+        public string ContinentName { get; set; } = string.Empty;
+        
+        public ICollection<Location> Locations { get; set; } = new List<Location>();
+    }
 }

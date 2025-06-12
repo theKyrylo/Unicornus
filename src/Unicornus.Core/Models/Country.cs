@@ -1,9 +1,15 @@
-namespace Unicornus.Core.Models;
+using System.ComponentModel.DataAnnotations;
 
-public class Country
+namespace Unicornus.Core.Models
 {
-    public int CountryId { get; set; }
-    public string CountryName { get; set; } = string.Empty;
-    
-    public ICollection<Location> Locations { get; set; } = new List<Location>();
+    public class Country
+    {
+        public int CountryId { get; set; }
+        
+        [Required]
+        [MaxLength(100)]
+        public string CountryName { get; set; } = string.Empty;
+        
+        public ICollection<Location> Locations { get; set; } = new List<Location>();
+    }
 }

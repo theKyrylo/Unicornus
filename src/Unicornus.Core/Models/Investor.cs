@@ -1,9 +1,15 @@
-namespace Unicornus.Core.Models;
+using System.ComponentModel.DataAnnotations;
 
-public class Investor
+namespace Unicornus.Core.Models
 {
-    public int InvestorId { get; set; }
-    public string InvestorName { get; set; } = string.Empty;
-    
-    public ICollection<CompanyInvestor> CompanyInvestors { get; set; } = new List<CompanyInvestor>();
+    public class Investor
+    {
+        public int InvestorId { get; set; }
+        
+        [Required]
+        [MaxLength(100)]
+        public string InvestorName { get; set; } = string.Empty;
+        
+        public ICollection<CompanyInvestor> CompanyInvestors { get; set; } = new List<CompanyInvestor>();
+    }
 }
