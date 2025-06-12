@@ -1,10 +1,11 @@
-namespace Unicornus.Core.Models;
-
-public class CompanyInvestor
+namespace Unicornus.Core.Models
 {
-    public int CompanyId { get; set; }
-    public int InvestorId { get; set; }
-    
-    public Company Company { get; set; } = null!;
-    public Investor Investor { get; set; } = null!;
+    public class CompanyInvestor
+    {
+        public int CompanyId { get; set; }
+        public Company Company { get; set; } = null!;
+        
+        public int InvestorId { get; set; }
+        public Investor Investor { get; set; } = null!;
+    }
 }

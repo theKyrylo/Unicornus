@@ -1,9 +1,15 @@
-namespace Unicornus.Core.Models;
+using System.ComponentModel.DataAnnotations;
 
-public class Industry
+namespace Unicornus.Core.Models
 {
-    public int IndustryId { get; set; }
-    public string IndustryName { get; set; } = string.Empty;
-    
-    public ICollection<Company> Companies { get; set; } = new List<Company>();
+    public class Industry
+    {
+        public int IndustryId { get; set; }
+        
+        [Required]
+        [MaxLength(100)]
+        public string IndustryName { get; set; } = string.Empty;
+        
+        public ICollection<Company> Companies { get; set; } = new List<Company>();
+    }
 }
